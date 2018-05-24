@@ -1,0 +1,32 @@
+<%= form_for(invite) do |f| %>
+  <% if invite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
+
+      <ul>
+      <% invite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_to %>
+    <%= f.number_field :user_to %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_from %>
+    <%= f.number_field :user_from %>
+  </div>
+
+  <div class="field">
+    <%= f.label :game_id %>
+    <%= f.text_field :game_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
